@@ -1,0 +1,24 @@
+<md-toolbar class="md-accent" ng-show="!renameApp">
+  <md-list-item class="md-3-line">
+    <md-icon class="md-hue-2 md-avatar" hide-sm md-svg-icon="<%- page.icon %>"></md-icon>
+    <div class="md-list-item-text">
+      <div class="md-headline"><%- page.title %></div>
+      <h4><%- page.excerpt %></h4>
+    </div>
+  </md-list-item>
+</md-toolbar>
+<md-card-content>
+  <div class="inset">
+    <% if (page.tags && page.tags.length){ %>
+      <%- list_tags(page.tags, {
+        show_count: false,
+        class: 'article-tag'
+      }) %>
+    <% } %>
+    <%- page.content %>
+  </div>
+</md-card-content>
+<md-divider></md-divider>
+<div class="inset">
+  create on <%= date(page.date, config.date_format) %> by <%= config.author %>
+</div>

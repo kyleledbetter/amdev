@@ -1,0 +1,23 @@
+<% site.categories.each(function(item){ %>
+  <section>
+    <md-subheader class="md-hue-1" ng-click="<%= item.name %> = !<%= item.name %>"><%= item.name %></md-subheader>
+    <md-list>
+      <% site.categories.findOne({name: item.name}).posts.each(function(post){ %>
+        <a href="<%- url_for(post.path) %>" ng-show="!<%= item.name %>" class="animate-grow">
+          <md-list-item class="md-2-line" md-ink-ripple="#64ffda">
+            <md-icon md-svg-icon="<%= post.icon %>" aria-label="{{item.title}}"></md-icon>
+            <div class="md-list-item-text">
+              <h3><%= post.title %></h3>
+              <% if(post.excerpt) { %>
+                <h4>
+                  <%- post.excerpt %>
+                </h4>
+              <% } %>
+            </div>
+          </md-list-item>
+        </a>
+        <md-divider ng-show="!<%= item.name %>"></md-divider>
+      <% }) %>
+    </md-list>
+  </section>
+<% }); %>

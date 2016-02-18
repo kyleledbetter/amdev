@@ -1,0 +1,43 @@
+<md-toolbar class="animate-show md-hue-2" ng-show="!renameApp">
+  <md-list-item class="md-3-line">
+    <md-icon class="md-avatar" hide-sm md-svg-icon="action:ic_dashboard_24px"></md-icon>
+    <div class="md-list-item-text">
+      <div class="md-headline">Atomic Design + Material Design</div>
+      <h4>Resuable Material Design Patterns</h4>
+    </div>
+  </md-list-item>
+</md-toolbar>
+<md-tabs md-border-bottom md-stretch-tabs="always" md-no-pagination md-dynamic-height>
+  <md-tab label="Patterns">
+    <div class="md-padding">
+      <p>
+        UI patterns are built up in this order: atoms, molecules, compounds and mixtures.
+      </p>
+      <md-list>
+        <% site.categories.each(function(item){ %>
+          <a href="<%- config.root %><%- item.path.toLowerCase() %>">
+            <md-list-item class="md-3-line" ng-click="toggleSidenav('nav');">
+              <md-icon md-svg-icon="file:ic_folder_open_24px" aria-label="{{item.name}}"></md-icon>
+              <div class="md-list-item-text">
+                <h3><%= item.length %> <%= item.name %>s</h3>
+              </div>
+              <md-divider md-inset></md-divider>
+            </md-list-item>
+          </a>
+        <% }); %>
+      </md-list>
+    </div>
+  </md-tab>
+  <md-tab label="Why?">
+    <div class="md-padding">
+      <h1 class="md-display-2">Tab</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+    </div>
+  </md-tab>
+  <md-tab label="Creators">
+    <div class="md-padding">
+      <h1 class="md-display-2">Tab</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+    </div>
+  </md-tab>
+</md-tabs>

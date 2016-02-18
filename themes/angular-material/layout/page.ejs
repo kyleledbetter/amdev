@@ -1,0 +1,45 @@
+<md-content layout="column" layout-fill>
+  <md-toolbar class="md-whiteframe-z1" md-scroll-shrink>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" back-button aria-label="Back">
+        <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Back"></md-icon>
+      </md-button>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+        <md-icon md-svg-icon="navigation:ic_more_vert_24px" aria-label="More"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <md-toolbar class="md-toolbar-spacer">
+      <div layout="row" layout-align="center center">
+        <div flex-gt-sm="90" flex-gt-md="65">
+          <h2 class="md-display-1"><%- page.title %></h2>
+          <p><%- page.excerpt %></p>
+        </div>
+      </div>
+    </md-toolbar>
+    <div layout-gt-sm="row" layout-align="center center" class="md-toolbar-margin">
+      <div flex-gt-sm="70" flex-gt-lg="70">
+        <md-card>
+          <!-- start -->
+          <div class="inset">
+            <h1><%= config.author %></h1>
+            <p><%- page.title %></p>
+            <% if (page.tags && page.tags.length){ %>
+              <%- list_tags(page.tags, {
+                show_count: false,
+                class: 'article-tag'
+              }) %>
+            <% } %>
+            <div class="text-muted">
+              <%= date(page.date, config.date_format) %>
+            </div>
+            <%- page.content %>
+          </div>
+          <!-- end -->
+        </md-card>
+      </div>
+    </div>
+  </md-content>
+</md-content>
