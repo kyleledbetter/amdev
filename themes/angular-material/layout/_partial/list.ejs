@@ -2,8 +2,8 @@
   <section>
     <md-subheader class="md-hue-1" ng-click="<%= item.name %> = !<%= item.name %>"><%= item.name %></md-subheader>
     <md-list>
-      <% site.categories.findOne({name: item.name}).posts.each(function(post){ %>
-        <a href="<%- url_for(post.path) %>" ng-show="!<%= item.name %>" class="animate-grow">
+      <% site.categories.findOne({name: item.name}).posts.sort('title', 1).each(function(post){ %>
+        <a href="<%- url_for(post.path) %>" ng-show="!<%= item.name %>"<% if (url_for(post.path) == url_for(page.path)){ %>class="active"<% } %>>
           <md-list-item class="md-2-line" md-ink-ripple="#64ffda">
             <md-icon md-svg-icon="<%= post.icon %>" aria-label="{{item.title}}"></md-icon>
             <div class="md-list-item-text">

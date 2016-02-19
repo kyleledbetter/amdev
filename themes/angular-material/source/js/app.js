@@ -144,17 +144,82 @@ app.controller('AppCtrl', ['$scope', '$mdBottomSheet','$mdSidenav', '$mdDialog',
     });
   };
 
-  $scope.showAdd = function(ev) {
+  $scope.autocomplete = function(ev) {
     $mdDialog.show({
       controller: DialogController,
-      template: '<md-dialog aria-label="Form"> <md-content class="md-padding"> <form name="userForm"> <div layout layout-sm="column"> <md-input-container flex> <label>First Name</label> <input ng-model="user.firstName"> </md-input-container> <md-input-container flex> <label>Last Name</label> <input ng-model="user.lastName"> </md-input-container> </div> <md-input-container flex> <label>Message</label> <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea> </md-input-container> </form> </md-content> <div class="md-actions" layout="row"> <span flex></span> <md-button ng-click="answer(\'not useful\')"> Cancel </md-button> <md-button ng-click="answer(\'useful\')" class="md-primary"> Save </md-button> </div></md-dialog>',
+      template: `
+      <md-dialog aria-label="App" class="md-dialog-lg">
+        <md-toolbar class="md-tall bgc-red-900">
+          <div layout="row">
+            <md-button class="md-icon-button" ng-click="cancel()">
+              <md-icon md-svg-icon="navigation:ic_arrow_back_24px" alt="Back"></md-icon>
+            </md-button>
+            <span flex=""></span>
+            <md-icon flex="30" class="md-icon-xl pull-bottom-lg md-muted" md-svg-icon="core:assessment" alt="Icon"></md-icon>
+          </div>
+          <div class="md-toolbar-tools pull-top-xxl">
+            <span flex-gt-sm="10"></span>
+            <div layout="column">
+              <div class="md-display-1">Demo</div>
+              <div class="md-subhead push-bottom">Etiam consequat aliquam cursus. In sodales pretium ultrices.</div>
+            </div>
+          </div>
+        </md-toolbar>
+         <md-dialog-content class="bgc-grey-100" flex>
+           <div hide-sm class="push-top-md"></div>
+           <div layout-gt-sm="row" layout-align-gt-sm="center start">
+             <div layout-gt-sm="row" flex-gt-sm="85">
+               <div flex-gt-sm="65">
+                 <md-card>
+                   <md-card-content>
+                     <p>Sticky content conversions shoptimization lean content conversation marketing dashboard Gen Y. Wheelhouse virality engagement. Integrated crowdsource flat design. Blogosphere The Cloud leverage. Download phablet brand awareness robust buzzword. Reaching out inbound drone. Seed money pass the clap organic reach goals for engagement verticals wheelhouse. Buzz engagement crowdsource intuitive reaching out lean content scalability.</p>
+                     <p>User-friendly lean content multiple points of entry drone taste makers dedication synergies. Quiet period virality council crowdsource lean content. Blogosphere long-tail omnichannel. Inbound B2C big data. Learnings ROI target influencer snackable content. Intuitive flat design branding leading the pack seamless.</p>
+                     <p>Ideation click bait optimized for social sharing. Branding seamless reaching out cross-device goals for engagement target audience organic reach. Multiple points of entry conversions B2C cross-device hashtag CRM meme. Funnel wheelhouse content curation market share viral CRM. Call-to-action low hanging fruit phablet engagement target audience. B2B pivot quiet period synergies. Call-to-action granular B2B virality low hanging fruit learnings target audience. Brand awareness pivot alignment leverage holistic. Buzzword disruptive tech shoptimization optimized for social sharing scalability crowdsource.</p>
+                   </md-card-content>
+                   <div layout="row" layout-align="start center" class="inset">
+                     <md-button class="md-raised md-accent" ui-sref="app-create" ng-click="controller.cancel()">Install App</md-button>
+                     <md-button class="md-raised">View Github Repo</md-button>
+                   </div>
+                 </md-card>
+               </div>
+               <div flex-gt-sm="35">
+                 <md-card>
+                   <md-list>
+                     <md-subheader class="md-no-sticky md-transparent">Atomic Breakdown</md-subheader>
+                     <md-list-item class="md-2-line">
+                       <md-icon md-svg-icon="core:view-module" alt="Icon" class="md-avatar"></md-icon>
+                       <div class="md-list-item-text">
+                         <h3>Button</h3>
+                         <p>atom</p>
+                       </div>
+                     </md-list-item>
+                     <md-list-item class="md-2-line">
+                       <md-icon md-svg-icon="image:center-focus-weak" alt="Icon" class="md-avatar"></md-icon>
+                       <div class="md-list-item-text">
+                         <h3>Card with Content</h3>
+                         <p>molecule</p>
+                       </div>
+                     </md-list-item>
+                     <md-list-item class="md-2-line">
+                       <md-icon md-svg-icon="core:settings-input-component" alt="Icon" class="md-avatar"></md-icon>
+                       <div class="md-list-item-text">
+                         <h3>Tabbed Toolbar Header</h3>
+                         <p>compound</p>
+                       </div>
+                     </md-list-item>
+                   </md-list>
+                 </md-card>
+               </div>
+             </div>
+           </div>
+        </md-dialog-content>
+      </md-dialog>
+      `,
       targetEvent: ev,
-    })
-    .then(function(answer) {
-      $scope.alert = 'You said the information was "' + answer + '".';
-    }, function() {
-      $scope.alert = 'You cancelled the dialog.';
     });
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
   };
 }]);
 

@@ -7,6 +7,11 @@ h2.md-display-1 {
   margin-bottom: 0px;
 }
 
+md-list .active md-list-item.md-2-line *,
+md-list .active md-list-item.md-2-line .md-list-item-text * {
+  color: #00bfa5;
+}
+
 md-content.md-default-theme {
   background-color: #eee;
 }

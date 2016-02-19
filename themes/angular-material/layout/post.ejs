@@ -1,4 +1,10 @@
 <md-toolbar class="md-accent" ng-show="!renameApp">
+  <% if (page.controller){ %>
+    <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Add" ng-click="<%- page.controller %>($event)">
+      <md-icon md-svg-icon="action:ic_launch_24px" aria-label="Launch"></md-icon>
+      <md-tooltip>Open Demo</md-tooltip>
+    </md-button>
+  <% } %>
   <md-list-item class="md-3-line">
     <md-icon class="md-hue-2 md-avatar" hide-sm md-svg-icon="<%- page.icon %>"></md-icon>
     <div class="md-list-item-text">

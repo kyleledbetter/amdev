@@ -6,6 +6,6 @@ icon: action:ic_open_in_browser_24px
 
 A bottom dialog
 <!-- more -->
-Long description here.
 
-<md-button class="md-raised md-accent" aria-label="Open Settings" ng-click="showListBottomSheet($event)">Open Bottomsheet</md-button>
+<p data-height="447" data-theme-id="22345" data-slug-hash="LGoZJj" data-default-tab="result" data-user="kyleledbetter" class='codepen'>See the Pen <a href='http://codepen.io/kyleledbetter/pen/LGoZJj/'>Bottomsheet</a> by Kyle Ledbetter (<a href='http://codepen.io/kyleledbetter'>@kyleledbetter</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>

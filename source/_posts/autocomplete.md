@@ -3,28 +3,11 @@ title: Autocomplete
 date: 2016-02-16 20:00:51
 categories: atom
 icon: hardware:ic_keyboard_24px
+controller: autocomplete
 ---
 
 A typeahead style search input
 <!-- more -->
-Long description here.
 
-<md-autocomplete
-    ng-disabled="ctrl.isDisabled"
-    md-no-cache="ctrl.noCache"
-    md-selected-item="ctrl.selectedItem"
-    md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-    md-search-text="ctrl.searchText"
-    md-selected-item-change="ctrl.selectedItemChange(item)"
-    md-items="item in ctrl.querySearch(ctrl.searchText)"
-    md-item-text="item.display"
-    md-min-length="0"
-    placeholder="What is your favorite US state?">
-  <md-item-template>
-    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-  </md-item-template>
-  <md-not-found>
-    No states matching "{{ctrl.searchText}}" were found.
-    <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
-  </md-not-found>
-</md-autocomplete>
+<p data-height="400" data-theme-id="22345" data-slug-hash="YwbWEr" data-default-tab="result" data-user="kyleledbetter" class='codepen'>See the Pen <a href='http://codepen.io/kyleledbetter/pen/YwbWEr/'>Autocomplete</a> by Kyle Ledbetter (<a href='http://codepen.io/kyleledbetter'>@kyleledbetter</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
